@@ -1,4 +1,5 @@
 /*
+C: COMO PROGRAMAR - EDIÇÃO 6
 2.5 Usando as instruções que você escreveu no Exercício 2.4,
 escreva um programa completo que calcule o produto de três números.
 */
