@@ -1,5 +1,7 @@
 /*
-2.16 
+C: COMO PROGRAMAR - EDIÇÃO 6
+2.16 Aritmética. Escreva um programa quue peça ao usuário que digite dois números, obtenha esses números
+e imprima a soma, o produto, a diferença, o quociente eo módulo (resto da divisão).
 */
 
 #include <stdio.h>
@@ -8,7 +10,8 @@ int main(void){
     int num1, num2;
     int soma, produto, diferenca, quociente, modulo;
 
-    printf("Este programa solicita dois numeros inteiros\ne apresenta na saida a SOMA, PRODUTO, DIFERENCA, QUOCIENTE e MODULO.\n\n");
+    printf("Este programa solicita dois numeros inteiros\n"
+        "e apresenta na saida a SOMA, PRODUTO, DIFERENCA, QUOCIENTE e MODULO.\n\n");
     
     printf("Digite o primeiro numero: ");
     scanf("%d", &num1);
