@@ -15,6 +15,7 @@ da instrução if que você aprendeu neste capítulo. O diálogo na tela deverá
 #include <stdio.h>
 
 int main(void){
+
     int num1, num2, num3;
     int soma, media, produto;
     int maior, menor;
