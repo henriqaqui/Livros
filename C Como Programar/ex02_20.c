@@ -25,7 +25,7 @@ int main( void )
 
     printf( "O diametro e %f\n", raio * 2 );
     printf( "A circunferencia e %f\n", 2 * PI * raio );
-    printf( "A area e %f\n", PI * raio * raio ) ;
+    printf( "A area e %f\n", PI * raio * raio );
     
     return 0;
 }
