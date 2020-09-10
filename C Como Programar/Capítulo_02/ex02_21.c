@@ -1,6 +1,6 @@
 /*
 =======================================================================================================================
-Filename:       ex02_20.c
+Filename:       ex02_21.c
 Author:         Henrique Rodrigues
 Description:    C: COMO PROGRAMAR - 6ª EDIÇÃO - PORTUGUÊS
                 2.21 Formas com asteriscos. Escreva um programa que imprima as seguintes formas com asteríscos.
