@@ -1,7 +1,12 @@
 /*
-C: COMO PROGRAMAR - EDIÇÃO 6
-2.5 Usando as instruções que você escreveu no Exercício 2.4,
-escreva um programa completo que calcule o produto de três números.
+=======================================================================================================================
+Filename:       ex02_05.c
+Author:         Henrique Rodrigues
+Description:    C: COMO PROGRAMAR - 6ª EDIÇÃO - PORTUGUÊS
+                2.5 Usando as instruções que você escreveu no Exercício 2.4,
+                escreva um programa completo que calcule o produto de três números.
+Date:           09/09/2020
+=======================================================================================================================
 */
 
 //Calcula o produto de três inteiros

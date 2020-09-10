@@ -1,10 +1,15 @@
 /*
-C: COMO PROGRAMAR - EDIÇÃO 6
-2.17 Imprimindo valores com printf. Escreva um programa que imprima os números de 1 a 4 na mesma linha.
-Escreva o programa utilizando os métodos a seguir.
-    a) Uma instrução printf sem especificadores de conversão.
-    b) Uma instrução printf com quatro especificadores de conversão.
-    c) Quatro instruções printf.
+=======================================================================================================================
+Filename:       ex02_17.c
+Author:         Henrique Rodrigues
+Description:    C: COMO PROGRAMAR - 6ª EDIÇÃO - PORTUGUÊS
+                2.17 Imprimindo valores com printf. Escreva um programa que imprima os números de 1 a 4 na mesma linha.
+                Escreva o programa utilizando os métodos a seguir.
+                    a) Uma instrução printf sem especificadores de conversão.
+                    b) Uma instrução printf com quatro especificadores de conversão.
+                    c) Quatro instruções printf.
+Date:           09/09/2020
+=======================================================================================================================
 */
 
 #include <stdio.h>

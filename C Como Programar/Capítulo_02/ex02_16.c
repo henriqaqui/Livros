@@ -1,7 +1,12 @@
 /*
-C: COMO PROGRAMAR - EDIÇÃO 6
-2.16 Aritmética. Escreva um programa quue peça ao usuário que digite dois números, obtenha esses números
-e imprima a soma, o produto, a diferença, o quociente eo módulo (resto da divisão).
+=======================================================================================================================
+Filename:       ex02_16.c
+Author:         Henrique Rodrigues
+Description:    C: COMO PROGRAMAR - 6ª EDIÇÃO - PORTUGUÊS
+                2.16 Aritmética. Escreva um programa quue peça ao usuário que digite dois números, obtenha esses
+                números e imprima a soma, o produto, a diferença, o quociente eo módulo (resto da divisão).
+Date:           09/09/2020
+=======================================================================================================================
 */
 
 #include <stdio.h>
