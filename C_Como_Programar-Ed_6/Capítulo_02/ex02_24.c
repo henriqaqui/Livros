@@ -4,7 +4,8 @@ Filename:       ex02_24.c
 Author:         Henrique Rodrigues
 Description:    C: COMO PROGRAMAR - 6ª EDIÇÃO - PORTUGUÊS
                 2.24 Par ou ímpar. Escreva um programa que leia um inteiro, determine e imprima se ele é par ou ímpar.
-                [Dica: use o operador módulo. Um número par é um múltiplo de dois. Qualque múltiplo de dois fera resto zero quando dividido por dois.]
+                [Dica: use o operador módulo. Um número par é um múltiplo de dois. Qualque múltiplo de dois fera resto
+                zero quando dividido por dois.]
 Date:           10/09/2020
 =======================================================================================================================
 */

@@ -3,7 +3,8 @@
 Filename:       ex02_25.c
 Author:         Henrique Rodrigues
 Description:    C: COMO PROGRAMAR - 6ª EDIÇÃO - PORTUGUÊS
-                2.25 Imprima as suas iniciais em letras em bloco no sentido vertical da página. Construa cada letra em bloco a partir da letra que ele representa, como mostramos a seguir.
+                2.25 Imprima as suas iniciais em letras em bloco no sentido vertical da página.
+                Construa cada letra em bloco a partir da letra que ele representa, como mostramos a seguir.
                     PPPPPPPPP
                          P  P
                          P  P
