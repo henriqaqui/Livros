@@ -1,10 +1,13 @@
 /*
-C: COMO PROGRAMAR - EDIÇÃO 6
-2.20 Diâmetro, circunferência e área de um círculo. Escreva um programa que leia o raio de um círculo
-e informe o diâmetro, a circunferência e a área do círculo. Utilize o valor constante 3,14159 para PI.
-Realize cada um desses cálculos dentro das instruções printf e use o especificaador de conversão %f.
-[Nota: neste capítulo, discutimos apenas constantes e variáveis inteiras. No capítulo 3 discutiremos os números
-em ponto flutuante, ou seja, valores que podem ter pontos decimais.]
+ Filename:    ex02_20.c
+ Author:      Henrique Rodrigues
+ Description: C: COMO PROGRAMAR - 6ª EDIÇÃO - PORTUGUÊS
+              2.20 Diâmetro, circunferência e área de um círculo. Escreva um programa que leia o raio de um círculo
+              e informe o diâmetro, a circunferência e a área do círculo. Utilize o valor constante 3,14159 para PI.
+              Realize cada um desses cálculos dentro das instruções printf e use o especificaador de conversão %f.
+              [Nota: neste capítulo, discutimos apenas constantes e variáveis inteiras. No capítulo 3 discutiremos
+              os números em ponto flutuante, ou seja, valores que podem ter pontos decimais.]
+Date:         10/09/2020
 */
 
 #include <stdio.h>
