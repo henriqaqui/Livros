@@ -23,5 +23,9 @@ int main( void )
         printf( "%d\n", num2 );
     }
 
+    /* Opção com operador ternário
+    printf( "%d\n", (num1 > num2) ? num1 : num2 );
+    */
+
     return 0;
 }
