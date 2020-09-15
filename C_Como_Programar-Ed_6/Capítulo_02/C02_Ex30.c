@@ -1,6 +1,6 @@
 /*
 =======================================================================================================================
-Filename:       ex02_30.c
+Filename:       C02_Ex30.c
 Author:         Henrique Rodrigues
 Description:    C: COMO PROGRAMAR - 6ª EDIÇÃO - PORTUGUÊS
                 2.30 Separando dígitos em um inteiro. Escreva um programa que leia um número de cinco dígitos,

@@ -1,6 +1,6 @@
 /*
 =======================================================================================================================
-Filename:       ex02_23.c
+Filename:       C02_Ex23.c
 Author:         Henrique Rodrigues
 Description:    C: COMO PROGRAMAR - 6ª EDIÇÃO - PORTUGUÊS
                 2.23 Maiores e menores inteiros. Escreva um programa que leia cinco inteiros e depois determine e

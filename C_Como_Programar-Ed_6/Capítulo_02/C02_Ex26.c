@@ -1,6 +1,6 @@
 /*
 =======================================================================================================================
-Filename:       ex02_26.c
+Filename:       C02_Ex26.c
 Author:         Henrique Rodrigues
 Description:    C: COMO PROGRAMAR - 6ª EDIÇÃO - PORTUGUÊS
                 2.26 Múltiplos. Escreva um programa que leia dois inteiros, determine e imprima se o primeiro for

@@ -1,6 +1,6 @@
 /*
 =======================================================================================================================
-Filename:       ex02_27.c
+Filename:       C02_Ex27.c
 Author:         Henrique Rodrigues
 Description:    C: COMO PROGRAMAR - 6ª EDIÇÃO - PORTUGUÊS
                 2.27 Padrão de asteríscos alternados. Apresente o seguinte padrão de asteríscos alternados com oito

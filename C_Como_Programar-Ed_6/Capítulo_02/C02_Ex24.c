@@ -1,6 +1,6 @@
 /*
 =======================================================================================================================
-Filename:       ex02_24.c
+Filename:       C02_Ex24.c
 Author:         Henrique Rodrigues
 Description:    C: COMO PROGRAMAR - 6ª EDIÇÃO - PORTUGUÊS
                 2.24 Par ou ímpar. Escreva um programa que leia um inteiro, determine e imprima se ele é par ou ímpar.

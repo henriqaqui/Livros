@@ -1,6 +1,6 @@
 /*
 =======================================================================================================================
-Filename:       ex02_31.c
+Filename:       C02_Ex31.c
 Author:         Henrique Rodrigues
 Description:    C: COMO PROGRAMAR - 6ª EDIÇÃO - PORTUGUÊS
                 2.31 Usando apenas as técnicas que você aprendeu neste capítulo, escreva um programa que calcule

@@ -1,6 +1,6 @@
 /*
 =======================================================================================================================
-Filename:       ex02_25.c
+Filename:       C02_Ex25.c
 Author:         Henrique Rodrigues
 Description:    C: COMO PROGRAMAR - 6ª EDIÇÃO - PORTUGUÊS
                 2.25 Imprima as suas iniciais em letras em bloco no sentido vertical da página.
