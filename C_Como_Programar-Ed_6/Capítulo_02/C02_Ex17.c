@@ -1,6 +1,6 @@
 /*
 =======================================================================================================================
-Filename:       ex02_17.c
+Filename:       C02_Ex17.c
 Author:         Henrique Rodrigues
 Description:    C: COMO PROGRAMAR - 6ª EDIÇÃO - PORTUGUÊS
                 2.17 Imprimindo valores com printf. Escreva um programa que imprima os números de 1 a 4 na mesma linha.

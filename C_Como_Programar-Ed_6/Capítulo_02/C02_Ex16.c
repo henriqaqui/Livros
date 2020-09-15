@@ -1,6 +1,6 @@
 /*
 =======================================================================================================================
-Filename:       ex02_16.c
+Filename:       C02_Ex16.c
 Author:         Henrique Rodrigues
 Description:    C: COMO PROGRAMAR - 6ª EDIÇÃO - PORTUGUÊS
                 2.16 Aritmética. Escreva um programa quue peça ao usuário que digite dois números, obtenha esses

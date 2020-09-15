@@ -1,6 +1,6 @@
 /*
 =======================================================================================================================
-Filename:       ex02_20.c
+Filename:       C02_Ex20.c
 Author:         Henrique Rodrigues
 Description:    C: COMO PROGRAMAR - 6ª EDIÇÃO - PORTUGUÊS
                 2.20 Diâmetro, circunferência e área de um círculo. Escreva um programa que leia o raio de um círculo

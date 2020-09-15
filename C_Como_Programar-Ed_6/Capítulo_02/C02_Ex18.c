@@ -1,6 +1,6 @@
 /*
 =======================================================================================================================
-Filename:       ex02_18.c
+Filename:       C02_Ex18.c
 Author:         Henrique Rodrigues
 Description:    C: COMO PROGRAMAR - 6ª EDIÇÃO - PORTUGUÊS
                 2.18 Comparando inteiros. Escreva um programa que peça ao usuário que digite dois inteiros,
@@ -13,7 +13,7 @@ Date:           09/09/2020
 
 #include <stdio.h>
 
-int main(void)
+int main( void )
 {
     int num1, num2;
 

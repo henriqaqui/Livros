@@ -1,6 +1,6 @@
 /*
 =======================================================================================================================
-Filename:       ex02_19.c
+Filename:       C02_Ex19.c
 Author:         Henrique Rodrigues
 Description:    C: COMO PROGRAMAR - 6ª EDIÇÃO - PORTUGUÊS
                 2.19 Aritmética, maior e menor valor. Escreva um programa que leia três inteiros diferentes do teclado,

@@ -1,6 +1,6 @@
 /*
 =======================================================================================================================
-Filename:       ex02_05.c
+Filename:       C02_Ex05.c
 Author:         Henrique Rodrigues
 Description:    C: COMO PROGRAMAR - 6ª EDIÇÃO - PORTUGUÊS
                 2.5 Usando as instruções que você escreveu no Exercício 2.4,
