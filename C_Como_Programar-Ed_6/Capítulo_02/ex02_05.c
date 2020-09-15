@@ -13,7 +13,8 @@ Date:           09/09/2020
 
 #include <stdio.h>
 
-int main( void ){
+int main( void )
+{
     int x, y, z, resultado;
 
     printf( "Digite o valor de tres numeros inteiros:\n" );
