@@ -12,18 +12,18 @@ Date:           10/09/2020
 
 #include <stdio.h>
 
-int main(void)
+int main( void )
 {   
     int numero;
 
-    printf("Entre com um numero inteiro:\n");
-    scanf("%d", &numero);
+    printf( "Entre com um numero inteiro:\n" );
+    scanf( "%d", &numero );
 
-    if(numero % 2 == 0){
-        printf("O numero %d e PAR.\n", numero);
+    if( numero % 2 == 0 ){
+        printf( "O numero %d e PAR.\n", numero );
     }
     else{
-        printf("O numero %d e IMPAR.\n", numero);
+        printf( "O numero %d e IMPAR.\n", numero );
     }
 
     return 0;

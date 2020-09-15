@@ -11,17 +11,17 @@ Date:           10/09/2020
 
 #include <stdio.h>
 
-int main(void)
+int main( void )
 {
     int num1, num2;
 
-    printf("Entre com dois numeros inteiros:\n");
-    scanf("%d %d", &num1, &num2);
+    printf( "Entre com dois numeros inteiros:\n" );
+    scanf( "%d %d", &num1, &num2 );
 
-    if(num1 % num2 == 0)
-        printf("%d e multiplo de %d\n", num1, num2);
+    if( num1 % num2 == 0 )
+        printf( "%d e multiplo de %d\n", num1, num2 );
     else
-        printf("%d nao e multiplo de %d\n", num1, num2);
+        printf( "%d nao e multiplo de %d\n", num1, num2 );
     
     return 0;
 }

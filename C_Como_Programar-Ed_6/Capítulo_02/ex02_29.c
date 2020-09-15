@@ -21,22 +21,22 @@ Date:           10/09/2020
 
 #include <stdio.h>
 
-int main(void)
+int main( void )
 {
-    printf("%d e o equivalente inteiro de A\n", 'A');
-    printf("%d e o equivalente inteiro de B\n", 'B');
-    printf("%d e o equivalente inteiro de C\n", 'C');
-    printf("%d e o equivalente inteiro de a\n", 'a');
-    printf("%d e o equivalente inteiro de b\n", 'b');
-    printf("%d e o equivalente inteiro de c\n", 'c');
-    printf("%d e o equivalente inteiro de 0\n", '0');
-    printf("%d e o equivalente inteiro de 1\n", '1');
-    printf("%d e o equivalente inteiro de 2\n", '2');
-    printf("%d e o equivalente inteiro de $\n", '$');
-    printf("%d e o equivalente inteiro de *\n", '*');
-    printf("%d e o equivalente inteiro de +\n", '+');
-    printf("%d e o equivalente inteiro de /\n", '/');
-    printf("%d e o equivalente inteiro de espaco em branco\n", ' ');
+    printf( "%d e o equivalente inteiro de A\n", 'A' );
+    printf( "%d e o equivalente inteiro de B\n", 'B' );
+    printf( "%d e o equivalente inteiro de C\n", 'C' );
+    printf( "%d e o equivalente inteiro de a\n", 'a' );
+    printf( "%d e o equivalente inteiro de b\n", 'b' );
+    printf( "%d e o equivalente inteiro de c\n", 'c' );
+    printf( "%d e o equivalente inteiro de 0\n", '0' );
+    printf( "%d e o equivalente inteiro de 1\n", '1' );
+    printf( "%d e o equivalente inteiro de 2\n", '2' );
+    printf( "%d e o equivalente inteiro de $\n", '$' );
+    printf( "%d e o equivalente inteiro de *\n", '*' );
+    printf( "%d e o equivalente inteiro de +\n", '+' );
+    printf( "%d e o equivalente inteiro de /\n", '/' );
+    printf( "%d e o equivalente inteiro de espaco em branco\n", ' ' );
 
     return 0;
 }

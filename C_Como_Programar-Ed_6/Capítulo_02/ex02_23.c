@@ -17,45 +17,45 @@ int main( void )
     int num1, num2, num3, num4, num5;
     int maior, menor;
 
-    printf("Entre com cinco numeros inteiros:\n");
-    scanf("%d %d %d %d %d", &num1, &num2, &num3, &num4, &num5);
+    printf( "Entre com cinco numeros inteiros:\n" );
+    scanf( "%d %d %d %d %d", &num1, &num2, &num3, &num4, &num5 );
 
     maior = num1;
     menor = num1;
 
-    if(num2 > maior){
+    if( num2 > maior ){
         maior = num2;
     }
 
-    if(num3 > maior){
+    if( num3 > maior ){
         maior = num3;
     }
 
-    if(num4 > maior){
+    if( num4 > maior ){
         maior = num4;
     }
 
-    if(num5 > maior){
+    if( num5 > maior ){
         maior = num5;
     }
 
-    if(num2 < menor){
+    if( num2 < menor ){
         menor = num2;
     }
 
-    if(num3 < menor){
+    if( num3 < menor ){
         menor = num3;
     }
 
-    if(num4 < menor){
+    if( num4 < menor ){
         menor = num4;
     }
 
-    if(num5 < menor){
+    if( num5 < menor ){
         menor = num5;
     }
 
-    printf("O maior e %d\nO menor e %d", maior, menor);
+    printf( "O maior e %d\nO menor e %d", maior, menor );
 
     return 0;
 }

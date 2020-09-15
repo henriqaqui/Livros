@@ -14,17 +14,18 @@ Date:           09/09/2020
 
 #include <stdio.h>
 
-int main(void){
+int main( void )
+{
     int um = 1, dois = 2, tres = 3, quatro = 4;
 
-    printf("1 2 3 4\n");
+    printf( "1 2 3 4\n" );
 
-    printf("%d %d %d %d\n", um, dois, tres, quatro);
+    printf( "%d %d %d %d\n", um, dois, tres, quatro );
     
-    printf("1 ");
-    printf("2 ");
-    printf("3 ");
-    printf("4\n");
+    printf( "1 " );
+    printf( "2 " );
+    printf( "3 " );
+    printf( "4\n" );
     
     return 0;
 }

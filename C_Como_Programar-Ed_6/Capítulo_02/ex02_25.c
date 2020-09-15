@@ -18,17 +18,17 @@ Date:           10/09/2020
 
 int main(void)
 {
-    printf("HHHHHHHHH\n");
-    printf("    H\n");
-    printf("    H\n");
-    printf("    H\n");
-    printf("HHHHHHHHH\n\n");
+    printf( "HHHHHHHHH\n" );
+    printf( "    H\n" );
+    printf( "    H\n" );
+    printf( "    H\n" );
+    printf( "HHHHHHHHH\n\n" );
 
-    printf("RRRRRRRRR\n");
-    printf("   R R  R\n");
-    printf("  R  R  R\n");
-    printf(" R   R  R\n");
-    printf("R     RR\n");
+    printf( "RRRRRRRRR\n" );
+    printf( "   R R  R\n" );
+    printf( "  R  R  R\n" );
+    printf( " R   R  R\n" );
+    printf( "R     RR\n" );
     
     return 0;
 }

@@ -19,14 +19,14 @@ Date:           09/09/2020
 
 #include <stdio.h>
 
-int main(void){
-
+int main(void)
+{
     int num1, num2, num3;
     int soma, media, produto;
     int maior, menor;
 
-    printf("Digite tres numeros inteiros diferentes: ");
-    scanf("%d %d %d", &num1, &num2, &num3);
+    printf( "Digite tres numeros inteiros diferentes: " );
+    scanf( "%d %d %d", &num1, &num2, &num3 );
 
     soma = num1 + num2 + num3;
     media = soma / 3;
@@ -35,24 +35,24 @@ int main(void){
     maior = num1;
     menor = num1;
 
-    if(num2 > maior){
+    if( num2 > maior ){
         maior = num2;
     }
 
-    if(num3 > maior){
+    if( num3 > maior ){
         maior = num3;
     }
 
-    if(num2 < menor){
+    if( num2 < menor ){
         menor = num2;
     }
 
-    if(num3 < menor){
+    if( num3 < menor ){
         menor = num3;
     }
 
-    printf("A soma e %d\nA media e %d\nO produto e %d\nO menor e %d\nO maior e %d\n",
-        soma, media, produto, menor, maior);
+    printf( "A soma e %d\nA media e %d\nO produto e %d\nO menor e %d\nO maior e %d\n",
+        soma, media, produto, menor, maior );
 
     return 0;
 }

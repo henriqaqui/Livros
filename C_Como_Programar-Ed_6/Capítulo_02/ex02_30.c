@@ -13,12 +13,12 @@ Date:           10/09/2020
 
 #include <stdio.h>
 
-int main(void)
+int main( void )
 {
     int numero;
     int dezenaMilhar, milhar, centena, dezena, unidade;
 
-    scanf("%d", &numero);
+    scanf( "%d", &numero );
 
     dezenaMilhar = numero / 10000;
     numero %= 10000;
@@ -29,7 +29,7 @@ int main(void)
     dezena = numero / 10;
     unidade = numero % 10;
     
-    printf("%d   %d   %d   %d   %d\n", dezenaMilhar, milhar, centena, dezena, unidade);
+    printf( "%d   %d   %d   %d   %d\n", dezenaMilhar, milhar, centena, dezena, unidade );
 
     return 0;
 }
