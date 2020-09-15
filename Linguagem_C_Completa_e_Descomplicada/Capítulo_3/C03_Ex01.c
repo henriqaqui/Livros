@@ -15,7 +15,6 @@ int main(){
 
     scanf("%d", &numero);
 
-    printf("%d\n%d\n", numero -1, numero + 1);
-
+    printf("%d\n%d\n", numero - 1, numero + 1);
     return 0;
 }
