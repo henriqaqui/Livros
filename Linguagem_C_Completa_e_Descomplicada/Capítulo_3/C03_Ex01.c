@@ -10,11 +10,13 @@ Date:           11/09/2020
 
 #include <stdio.h>
 
-int main(){
+int main( void )
+{
     int numero;
 
-    scanf("%d", &numero);
+    scanf( "%d", &numero );
 
-    printf("%d\n%d\n", numero - 1, numero + 1);
+    printf( "%d\n%d\n", numero - 1, numero + 1 );
+    
     return 0;
 }
