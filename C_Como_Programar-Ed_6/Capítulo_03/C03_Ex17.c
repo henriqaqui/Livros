@@ -3,7 +3,7 @@
 Filename:       C03_Ex17.c
 Author:         Henrique Rodrigues
 Description:    C: COMO PROGRAMAR - 6ª EDIÇÃO - PORTUGUÊS
-                2.17 Consumo de gasolina. Os motoristas se preocupam com o consumo de gasolina de seus automóveis.
+                3.17 Consumo de gasolina. Os motoristas se preocupam com o consumo de gasolina de seus automóveis.
                 Um motorista manteve um registro do número de abastecimento que fez, registrando também o número de
                 quilômetros rodados e de litros obtidos a cada abastecimento. Desenvolva um programa que peça o número
                 de quilômetros dirigidos e a quantidade de litros obtidos a cada abastecimento. O programa deverá
