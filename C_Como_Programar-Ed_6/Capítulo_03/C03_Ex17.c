@@ -44,7 +44,7 @@ int main( void )
         printf( "O consumo geral foi de: %f km/l\n", kmLitroTotal );
     }
     else{
-        printf( "ERRO! Dados insuficientes.\n" );
+        printf( "Dados insuficientes.\n" );
     }
     
     return 0;
