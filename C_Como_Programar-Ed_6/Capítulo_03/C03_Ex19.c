@@ -17,7 +17,7 @@ Date:           16/09/2020
 
 int main( void )
 {
-    const float fixoSemana = 200.00, porcentagemComissao = .09;
+    const float FIXO_SEMANA = 200.00, PORCENTAGEM_COMISSAO = .09;
 
     float vendas, pagamento;
 
@@ -25,7 +25,7 @@ int main( void )
     scanf( "%f", &vendas);
 
     while( -1 != vendas){
-        pagamento = (vendas * porcentagemComissao) + fixoSemana;
+        pagamento = (vendas * PORCENTAGEM_COMISSAO) + FIXO_SEMANA;
         printf( "O pagamento e de: %.2f\n\n", pagamento );
 
         printf( "Informe a venda em reais (-1 para terminar): " );
