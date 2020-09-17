@@ -16,7 +16,8 @@ int main( void )
     int numero, maior, segundoMaior;
     int contador = 1;
 
-    /*Salvar o primeiro maior número*/
+    /*Salvar o primeiro maior número. Garantir que não vai estar com lixo de memmória.
+    Também não iniciei com maior=0 e fiz apenas o while porque ao entrar inteiros negativos causaria um erro lógico.*/
     printf( "Digite dez numeros inteiros (%d/10): ", contador );
     scanf( "%d", &numero );
 
@@ -36,6 +37,7 @@ int main( void )
     }
 
     contador++;
+    
 
     /*Inicio das demais comparações*/
     while(contador <= 10){
