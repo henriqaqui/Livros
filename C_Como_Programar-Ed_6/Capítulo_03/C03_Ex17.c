@@ -43,9 +43,6 @@ int main( void )
         kmLitroTotal = kmTotal / litrosTotal;
         printf( "O consumo geral foi de: %f km/l\n", kmLitroTotal );
     }
-    else{
-        printf( "Dados insuficientes.\n" );
-    }
     
     return 0;
 }
