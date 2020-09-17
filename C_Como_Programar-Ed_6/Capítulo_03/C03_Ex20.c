@@ -6,7 +6,8 @@ Description:    C: COMO PROGRAMAR - 6ª EDIÇÃO - PORTUGUÊS
                 3.20 Calculadora de juros. Os juros simples sobre um empréstimo são calculados a partir da fórmula:
                     juros = principal * taxa * dias / 365;
                 Essa fórmula considera que taxa seja taxa de juros anual e, portanto, inclui a divisão por 365 (dias).
-                Desenvolva um programa que aceite principal, taxa e dias para vários empréstimos, calcule e apresente os juros simples para cada empréstimo, usando a fórmula apresentada.
+                Desenvolva um programa que aceite principal, taxa e dias para vários empréstimos, calcule e apresente
+                os juros simples para cada empréstimo, usando a fórmula apresentada.
 Date:           17/09/2020
 =======================================================================================================================
 */
