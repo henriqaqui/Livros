@@ -37,7 +37,6 @@ int main( void )
     }
 
     contador++;
-    
 
     /*Inicio das demais comparações*/
     while(contador <= 10){
