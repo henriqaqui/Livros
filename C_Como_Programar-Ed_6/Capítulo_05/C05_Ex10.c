@@ -19,16 +19,15 @@ Date:           21/09/2020
 
 int main( void )
 {
-    double x;
-    int y;
+    double x, y;
 
     printf( "Digite um numero real (-1 para terminar): " );
     scanf( "%lf", &x);
 
     while( x != SENTINELA ){
-        y = floor( x );
+        y = floor( x + .5 ); //ainda não entendi muito bem o porquê de somar com .5. Apenas fiz o comando pedido.
 
-        printf( "%.2f arrendondado com a funcao floor e: %d\n\n", x, y);
+        printf( "Original: %f\nArrendondado: %.0f\n\n", x, y);
 
         printf( "Digite um numero real (-1 para terminar): " );
         scanf( "%lf", &x);
