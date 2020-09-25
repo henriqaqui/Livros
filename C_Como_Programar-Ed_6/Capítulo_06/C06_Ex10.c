@@ -101,7 +101,7 @@ void contarSalario( const float comissoes[], int qtdVendedores )
     for(i = 0; i <= 8; i++ ){
         if( i < 8){
             printf( "R$ %.2f - R$ %.2f\t%10d\t", salarioFixo, salarioFixo + 99, contagem[i] );
-            for(j = 1; j <= contagem[i]; j++){
+            for(j = 1; j <= contagem[i]; j++){ //esse histograma não foi pedido.
                 printf( "*" );
             }
             printf( "\n" );
