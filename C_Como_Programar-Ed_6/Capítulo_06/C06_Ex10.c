@@ -4,11 +4,12 @@ Filename:       C06_Ex10.c
 Author:         Henrique Rodrigues
 Description:    C: COMO PROGRAMAR - 6ª EDIÇÃO - PORTUGUÊS
                 6.10 Comissões de vendas. Use um array com subscrito único para resolver o problema a seguir.
-                Uma empresa paga o salário de seus vendedores com base em uma comissão. O vendedor recebe R$ 200,00 por semana, e mais 9 por cento de suas vendas brutas nessa semana. Por exemplo, um vendedor, que totalize
-                R$ 3.000,00 em vendas em uma semana, receberá R$ 200,00 e mais 9 por cento de R$ 3.000,00, ou seja,
-                R$ 470,00. Escreva um programa em C (usando um array de contadores) que determine quantos vendedores
-                receberam salários dentro de cada um dos seguintes intervalos (suponha que o salário de cada vendedor
-                seja arredondado em um valor inteiro):
+                Uma empresa paga o salário de seus vendedores com base em uma comissão. O vendedor recebe R$ 200,00
+                por semana, e mais 9 por cento de suas vendas brutas nessa semana. Por exemplo, um vendedor, que
+                totalize R$ 3.000,00 em vendas em uma semana, receberá R$ 200,00 e mais 9 por cento de R$ 3.000,00, ou
+                seja, R$ 470,00. Escreva um programa em C (usando um array de contadores) que determine quantos
+                vendedores receberam salários dentro de cada um dos seguintes intervalos (suponha que o salário de cada
+                vendedor seja arredondado em um valor inteiro):
                     a) R$ 200–299
                     b) R$ 300–399
                     c) R$ 400–499
