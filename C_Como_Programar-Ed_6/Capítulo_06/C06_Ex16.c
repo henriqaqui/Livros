@@ -25,9 +25,9 @@ void printArray( const int a[] );
 int main( void )
 {
    int frequency[ 10 ] = { 0 }; /* initialize array frequency */
-   
+
    /* initialize array response */
-   int response[ SIZE ] =             
+   int response[ SIZE ] =
       { 6, 7, 8, 9, 8, 7, 8, 9, 8, 9,
         7, 8, 9, 5, 9, 8, 7, 8, 7, 8,
         6, 7, 8, 9, 3, 9, 8, 7, 8, 7,
@@ -70,8 +70,8 @@ void mean( const int answer[] )
 /* sort array and determine median element's value */
 void median( int answer[] )
 {
-   printf( "\n%s\n%s\n%s\n%s", 
-           "********", " Median", "********", 
+   printf( "\n%s\n%s\n%s\n%s",
+           "********", " Median", "********",
            "The unsorted array of responses is" );
 
    printArray( answer ); /* output unsorted array */
@@ -81,11 +81,20 @@ void median( int answer[] )
    printf( "\n\nThe sorted array is" );
    printArray( answer ); /* output sorted array */
 
-   /* display median element */
-   printf( "\n\nThe median is element %d of\n"
-           "the sorted %d element array.\n"
-           "For this run the median is %d\n\n",
-           SIZE / 2, SIZE, answer[ SIZE / 2 ] );
+   /* display median element*/
+   /* Muda a resposta caso SIZE seja par */
+   if( SIZE % 2 == 0 ){
+       printf( "\n\nA mediana e a media dos elementos %d e %d of\n"
+               "the sorted %d element array.\n"
+               "For this run the median is %.1f\n\n",
+               SIZE / 2 - 1, SIZE / 2, SIZE, (answer[ SIZE / 2 ] + answer[ SIZE / 2 - 1 ]) / (float)2 );
+   }
+   else{
+        printf( "\n\nThe median is element %d of\n"
+               "the sorted %d element array.\n"
+               "For this run the median is %d\n\n",
+               SIZE / 2, SIZE, answer[ SIZE / 2 ] );
+   }
 } /* end function median */
 
 /* determine most frequent response */
@@ -97,7 +106,7 @@ void mode( int freq[], const int answer[] )
    int largest = 0; /* represents largest frequency */
    int modeValue = 0; /* represents most frequent response */
 
-   printf( "\n%s\n%s\n%s\n", 
+   printf( "\n%s\n%s\n%s\n",
            "********", "  Mode", "********" );
 
    /* initialize frequencies to 0 */
