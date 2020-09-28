@@ -98,7 +98,10 @@ void mode( int freq[], const int answer[] )
    int j; /* contador para resumir os elementos 0 - 98 do array answer */
    int h; /* contador para exibir histogramas dos elementos no array freq */
    int largest = 0; /* representa maior frequencia */
-   int modeValue = 0; /* representa resposta mais frequente */
+   int modeValue[ 10 ] = { 0 }; /* representa resposta mais frequente */
+
+   int contaModa = 0;
+   int ratingModas = 1;
 
    printf( "\n%s\n%s\n%s\n",
            "********", "  Mode", "********" );
@@ -125,7 +128,7 @@ void mode( int freq[], const int answer[] )
       /* acompanha valor da moda e valor da maior frequência */
       if ( freq[ rating ] > largest ) {
          largest = freq[ rating ];
-         modeValue = rating;
+         modeValue[ ratingModas ] = rating;
       } /* fim do if */
 
       /* barra de histograma de saída de impressão que representa valor de frequência */
@@ -135,11 +138,42 @@ void mode( int freq[], const int answer[] )
 
       printf( "\n" );
    } /* fim do for externo */
+   
+
+   for( rating = 1; rating <= 9; rating++ ){
+       if (freq[ modeValue[1] ] == freq[ rating ] ){
+           contaModa++;
+
+           if( contaModa > 1  ){
+               ratingModas++;
+               modeValue[ ratingModas ] = rating;
+           }
+       }
+   }
+
+
+
 
    /* exibe o valor da moda */
-   printf( "The mode is the most frequent value.\n"
+   
+   if( contaModa > 8 ){
+       printf( "Nao ha moda. Todos os valores foram repetidos %d vezes.\n", largest );
+   }
+   else if( contaModa > 1 ){
+
+        printf( "A moda e o valor mais frequente.\n"
+           "Para essa execucao ha %d modas:", contaModa );
+        for( ; contaModa > 0; contaModa-- ){
+            printf( "%d\n", modeValue[ contaModa ]);
+        }
+        printf( "Cada uma delas ocorreu %d vezes.\n", largest );    
+   }
+   else{
+       printf( "The mode is the most frequent value.\n"
            "For this run the mode is %d which occurred"
-           " %d times.\n", modeValue, largest );
+           " %d times.\n", modeValue[1], largest );
+   }
+   
 } /* fim da função mode */
 
 void bubbleSort( int a[] )
