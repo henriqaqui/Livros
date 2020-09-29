@@ -61,6 +61,7 @@ int main( void )
    return 0;
 }
 
+
 float calculaProbabilidade( float ocorrencia, float total )
 {
     return ocorrencia / total * 100;
