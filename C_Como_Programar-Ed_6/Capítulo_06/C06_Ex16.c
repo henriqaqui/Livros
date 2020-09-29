@@ -24,7 +24,7 @@ int main( void )
 {
    int frequency[ 10 ] = { 0 }; 
 
-   int response[ SIZE ] =
+   /*int response[ SIZE ] =             
       { 6, 7, 8, 9, 8, 7, 8, 9, 8, 9,
         7, 8, 9, 5, 9, 8, 7, 8, 7, 8,
         6, 7, 8, 9, 3, 9, 8, 7, 8, 7,
@@ -34,7 +34,31 @@ int main( void )
         5, 6, 7, 2, 5, 3, 9, 4, 6, 4,
         7, 8, 9, 6, 8, 7, 8, 9, 7, 8,
         7, 4, 4, 2, 5, 3, 8, 7, 5, 6,
-        4, 5, 6, 1, 6, 5, 7, 8, 7 };
+        4, 5, 6, 1, 6, 5, 7, 8, 7 }; */
+
+   /*int response[ SIZE ] =             
+      { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+        3, 3, 3, 3, 3, 3, 3, 3, 3, 3,
+        4, 4, 4, 4, 4, 4, 4, 4, 4, 4,
+        5, 5, 5, 5, 5, 5, 5, 5, 5, 5,
+        6, 6, 6, 6, 6, 6, 6, 6, 6, 6,
+        7, 7, 7, 7, 7, 7, 7, 7, 7, 7,
+        8, 8, 8, 8, 8, 8, 8, 8, 8, 8,
+        9, 9, 9, 9, 9, 9, 9, 9, 9, 9,
+        1, 2, 3, 4, 5, 6, 7, 8, 9 }; */
+
+   int response[ SIZE ] =             
+      { 6, 7, 3, 9, 3, 7, 8, 9, 3, 9,
+        7, 8, 9, 5, 9, 8, 7, 8, 7, 8,
+        6, 7, 8, 9, 3, 9, 3, 7, 3, 7,
+        7, 3, 9, 3, 9, 8, 9, 7, 1, 9,
+        6, 1, 3, 7, 1, 1, 9, 3, 9, 2,
+        7, 3, 9, 8, 9, 8, 9, 3, 5, 3,
+        5, 6, 7, 2, 5, 3, 9, 4, 6, 3,
+        7, 3, 9, 6, 3, 7, 8, 9, 7, 3,
+        7, 4, 4, 2, 5, 3, 1, 7, 5, 6,
+        4, 5, 6, 1, 6, 5, 1, 8, 7 };
 
    mean( response );
    median( response );
@@ -94,14 +118,20 @@ void median( int answer[] )
 /* determina a resposta mais frequente */
 void mode( int freq[], const int answer[] )
 {
+   const int MAXIMO_MODA = 8; /* é a quantidade máxima de modas que podem existir neste problema*/
+   const int I_PRIMEIRA_MODA = 1; /* índice do modeValue em que ficará salvo a primeira moda encontrada */
+   
    int rating; /* contador para acessar os elementos 1- 9 do array freq */
    int j; /* contador para resumir os elementos 0 - 98 do array answer */
    int h; /* contador para exibir histogramas dos elementos no array freq */
    int largest = 0; /* representa maior frequencia */
-   int modeValue[ 10 ] = { 0 }; /* representa resposta mais frequente */
 
-   int contaModa = 0;
-   int ratingModas = 1;
+   /* representa resposta mais frequente */
+   /* transfomei em um array para que armazene, se necessário, todas as modas */
+   int modeValue[ MAXIMO_MODA + 1 ];
+
+   int contaModa = 0; /* contador de quantas modas contém */
+   int ratingModeValue; /* contador para acessar os elementos de 1 a 8 do array modeValue no printf*/
 
    printf( "\n%s\n%s\n%s\n",
            "********", "  Mode", "********" );
@@ -128,7 +158,7 @@ void mode( int freq[], const int answer[] )
       /* acompanha valor da moda e valor da maior frequência */
       if ( freq[ rating ] > largest ) {
          largest = freq[ rating ];
-         modeValue[ ratingModas ] = rating;
+         modeValue[ I_PRIMEIRA_MODA ] = rating; 
       } /* fim do if */
 
       /* barra de histograma de saída de impressão que representa valor de frequência */
@@ -139,41 +169,33 @@ void mode( int freq[], const int answer[] )
       printf( "\n" );
    } /* fim do for externo */
    
-
+   /* Verifica se há mais de uma moda e identifica quais são elas */
    for( rating = 1; rating <= 9; rating++ ){
-       if (freq[ modeValue[1] ] == freq[ rating ] ){
+       if ( freq[ modeValue[ I_PRIMEIRA_MODA ] ] == freq[ rating ] ){
            contaModa++;
-
            if( contaModa > 1  ){
-               ratingModas++;
-               modeValue[ ratingModas ] = rating;
+               modeValue[ contaModa ] = rating;
            }
        }
    }
 
-
-
-
    /* exibe o valor da moda */
-   
-   if( contaModa > 8 ){
+   if( contaModa > MAXIMO_MODA ){
        printf( "Nao ha moda. Todos os valores foram repetidos %d vezes.\n", largest );
    }
    else if( contaModa > 1 ){
-
         printf( "A moda e o valor mais frequente.\n"
-           "Para essa execucao ha %d modas:", contaModa );
-        for( ; contaModa > 0; contaModa-- ){
-            printf( "%d\n", modeValue[ contaModa ]);
+           "Para essa execucao ha %d modas:\n", contaModa );
+        for( ratingModeValue = 1 ; ratingModeValue <= contaModa; ratingModeValue++ ){
+            printf( "%d\n", modeValue[ ratingModeValue ]);
         }
         printf( "Cada uma delas ocorreu %d vezes.\n", largest );    
    }
    else{
        printf( "The mode is the most frequent value.\n"
            "For this run the mode is %d which occurred"
-           " %d times.\n", modeValue[1], largest );
+           " %d times.\n", modeValue[ I_PRIMEIRA_MODA ], largest );
    }
-   
 } /* fim da função mode */
 
 void bubbleSort( int a[] )
