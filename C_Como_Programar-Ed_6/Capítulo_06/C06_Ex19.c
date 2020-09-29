@@ -22,14 +22,14 @@ Date:           29/09/2020
 
 #define LANCAMENTOS 36000
 #define POSSIBILIDADES 36
-#define SOMA_LADOS 13 // ignora o 0 e 1 restando apenas as 11 somas possíveis.
+#define SOMA_LADOS 13 // ignora o 0 e 1 restando apenas as 11 somas possíveis
 
 float calculaProbabilidade( float ocorrencia, float total );
 float calculaVariacao( float probabilidade1, float probabilidade2 );
 
 int main( void )
 {
-    //probabilidade de ocorrer as somas(2 - 12) nas 36 possibilidades existentes
+    //probabilidade de ocorrer as somas(2 a 12) nas 36 possibilidades existentes
     const int OCORRENCIA[] = { 0, 0, 1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1 }; 
 
     int dado1, dado2;
