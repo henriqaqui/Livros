@@ -17,32 +17,42 @@ Date:           29/09/2020
 #define VALOR_MINIMO 10
 #define VALOR_MAXIMO 100
 
+int duplicado ( int num[], int i );
+
 int main( void )
 {
-    int numero[TAMANHO] = { 0 };
+    int numero[ TAMANHO ];
     int i = 0; // índice do array numero
-    int j; // índice do array numero que verifica repetição
-    int duplicado = 0; // 0 não foi duplicado, 1 é duplicado
 
     for ( i = 0; i < TAMANHO; i++ ){
         do{
             printf( "Digite um inteiro entre 10 e 100 (%d/%d): ", i + 1, TAMANHO );
-            scanf( "%d", &numero[i]);
-        }while ( numero[i] < VALOR_MINIMO || numero[i] > VALOR_MAXIMO );
+            scanf( "%d", &numero[ i ] );
+        }while ( numero[ i ] < VALOR_MINIMO || numero[ i ] > VALOR_MAXIMO );
         
-        for( j = 0; j < i; j++ ){
-            if( numero[i] == numero[j] ){
-                duplicado++;
-                j = i;
-            }                
+        if( !( duplicado( numero, i ) ) ){
+            printf( "%d\n", numero[ i ] );
         }
-        
-        if( duplicado == 0 || 0 == i ){
-            printf( "%d\n", numero[i]);
-        }
-
-        duplicado = 0;
     }
     
+    return 0;
+}
+
+/*verifica se último numero do array enviado já foi repetido antes
+retornando 1 se é repetido e 0 se não*/
+int duplicado ( int num[], int i )
+{
+    int j;
+
+    if( i == 0 ){
+        return 0;
+    }
+    else{
+        for( j = 0; j < i; j++ ){
+            if( num[ i ] == num[ j ] ){
+                return 1;
+            }  
+        }              
+    }
     return 0;
 }
