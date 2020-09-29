@@ -21,14 +21,22 @@ Date:           29/09/2020
 #include <time.h>
 
 #define LANCAMENTOS 36000
+#define POSSIBILIDADES 36
 #define SOMA_LADOS 13 // ignora o 0 e 1 restando apenas as 11 somas possíveis.
+
+float calculaProbabilidade( float ocorrencia, float total );
+float calculaVariacao( float probabilidade1, float probabilidade2 );
 
 int main( void )
 {
+    //probabilidade de ocorrer as somas(2 - 12) nas 36 possibilidades existentes
+    const int OCORRENCIA[] = { 0, 0, 1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1 }; 
+
     int dado1, dado2;
     int frequenciaSoma[ SOMA_LADOS ] = { 0 };
     int repeticoes; //conta quantos lançamentos foram feitos
     int somaFace; // indica as somas possíveis e é o contador de frequenciaSoma
+    float probReal, probPrograma; // aramazenam a probabilidade de ocorrencia das somas
 
     srand( time( NULL ) );
 
@@ -39,11 +47,38 @@ int main( void )
         ++frequenciaSoma[ dado1 + dado2 ];
     }
 
-    printf( "%14s%15s", "Soma das Faces", "Frequencia\n" );
+    printf( "%14s" "%15s" "%23s" "%30s" "%13s", "Soma das Faces", "Frequencia", "Probabilidade Real",
+        "Probabilidade do Programa", "Variacao\n" );
 
     for( somaFace = 2; somaFace < SOMA_LADOS; somaFace++ ){
-        printf( "%14d\t%12d\n", somaFace, frequenciaSoma[somaFace] );
+        probReal = calculaProbabilidade( OCORRENCIA[somaFace], POSSIBILIDADES );
+        probPrograma = calculaProbabilidade( frequenciaSoma[somaFace], LANCAMENTOS );
+
+        printf( "%14d" "%15d" "%22.2f%%" "%29.2f%%" "%+11.2f%%\n", somaFace, frequenciaSoma[ somaFace ],
+            probReal, probPrograma, calculaVariacao( probReal, probPrograma ) );
     }
 
    return 0;
+}
+
+float calculaProbabilidade( float ocorrencia, float total )
+{
+    return ocorrencia / total * 100;
+}
+
+
+float calculaVariacao( float probabilidade1, float probabilidade2 )
+{
+    float variacao;
+
+    variacao = probabilidade1 - probabilidade2;
+    
+    if( variacao < 0 ){
+        variacao = variacao / probabilidade1 * 100 ;
+    }
+    else{
+         variacao = variacao / probabilidade2 * 100 ;
+    }
+
+    return -variacao;
 }
