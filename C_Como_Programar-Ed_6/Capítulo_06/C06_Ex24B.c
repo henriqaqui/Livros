@@ -86,7 +86,7 @@ int main( void )
         printf( "\n" );
     }
 
-    printf( "Total de casas preenchidas: %d\n", contaCasa );
+    printf( "Total de casas percorridas: %d\n", contaCasa );
 
    return 0;
 }
