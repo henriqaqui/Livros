@@ -43,32 +43,31 @@ Date:           29/09/2020
 int testaMovimento( int tab[8][8], int hor[], int ver[], int linha, int coluna, int mov );
 int testaMovimentos( int tab[8][8], int hor[], int ver[], int linha, int coluna );
 
-
 int main( void )
 {
+    const int HORIZONTAL[8] = { 2, 1, -1, -2, -2, -1, 1, 2 };
+    const int VERTICAL[8] = { -1, -2, -2, -1, 1, 2, 2, 1 };
     int tabuleiro[8][8] = { 0 };
-    int horizontal[8] = { 2, 1, -1, -2, -2, -1, 1, 2 };
-    int vertical[8] = { -1, -2, -2, -1, 1, 2, 2, 1 };
-    int atualLinha, atualColuna;
+    int atualLinha, atualColuna, testaLinha, testaColuna;
     int movimentoCavalo; //indica as opções de movimentos entre 0 e 7
-    int contaCasa; // contador de quadrados em que o cavalo passou
+    int contaCasa = 0; // contador de quadrados em que o cavalo passou
     int i, j;
 
     srand( time( NULL ) );
     atualLinha = rand() % 8;
     atualColuna = rand() % 8;
-    movimentoCavalo = rand() % 8;
+    tabuleiro[atualLinha][atualColuna] = ++contaCasa;
 
-    tabuleiro[atualLinha][atualColuna] = 1;
+    movimentoCavalo = rand() % 8;
     
-    for( contaCasa = 1; contaCasa < CASAS; ){
-        if( testaMovimentos( tabuleiro, horizontal, vertical, atualLinha, atualColuna ) ){
+    while( contaCasa < CASAS ){
+        if( testaMovimentos( tabuleiro, HORIZONTAL, VERTICAL, atualLinha, atualColuna ) ){
             do{
                 movimentoCavalo = rand() % 8;
-            }while( !(testaMovimento( tabuleiro, horizontal, vertical, atualLinha, atualColuna, movimentoCavalo ) ) );
+            }while( !(testaMovimento( tabuleiro, HORIZONTAL, VERTICAL, atualLinha, atualColuna, movimentoCavalo ) ) );
 
-            atualLinha += vertical[ movimentoCavalo ];
-            atualColuna += horizontal[ movimentoCavalo ];
+            atualLinha += VERTICAL[ movimentoCavalo ];
+            atualColuna += HORIZONTAL[ movimentoCavalo ];
 
             tabuleiro[atualLinha][atualColuna] = ++contaCasa;
         }
