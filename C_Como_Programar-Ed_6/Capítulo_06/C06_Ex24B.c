@@ -39,6 +39,8 @@ Date:           29/09/2020
 #include <time.h>
 
 int validaMovimentos( int tab[8][8], int *linha, int *coluna, int mov );
+void move( int *linha, int *coluna, int mov, int tarefa );
+
 
 int main( void )
 {
@@ -80,37 +82,44 @@ int main( void )
 // mov < 0 indica que todos os movimentos serão testados
 int validaMovimentos( int tab[8][8], int *linha, int *coluna, int mov )
 {
-    const int HORIZONTAL[8] = { 2, 1, -1, -2, -2, -1, 1, 2 };
-    const int VERTICAL[8] = { -1, -2, -2, -1, 1, 2, 2, 1 };
-
     if( mov < 0 ){
         for( mov = 0; mov < 8; mov++ ){
-            *linha += VERTICAL[mov];
-            *coluna += HORIZONTAL[mov];
+            move( linha, coluna, mov, 1 );
 
-            if( ( *linha < 8 && *linha >= 0 ) && ( *coluna < 8 && *coluna >= 0 ) && ( 0  == tab[ *linha ] [ *coluna ] ) ){
-                    *linha -= VERTICAL[mov];
-                    *coluna -= HORIZONTAL[mov];
-                    return 1;
+            if( ( linha < 8 && linha >= 0 ) && ( coluna < 8 && coluna >= 0 ) && ( 0  == tab[ *linha ] [ *coluna ] ) ){
+                move( linha, coluna, mov, 0 );
+                return 1;
             }
             else{
-                *linha -= VERTICAL[mov];
-                *coluna -= HORIZONTAL[mov];
+                move( linha, coluna, mov, 0 );
             }      
         }
     }
     else{
-        *linha += VERTICAL[mov];
-        *coluna += HORIZONTAL[mov];
+        move( linha, coluna, mov, 1 );
 
-        if( ( *linha < 8 && *linha >= 0 ) && ( *coluna < 8 && *coluna >= 0 ) && ( 0  == tab[ *linha ] [ *coluna ] ) ){
+        if( ( linha < 8 && linha >= 0 ) && ( coluna < 8 && coluna >= 0 ) && ( 0  == tab[ *linha ] [ *coluna ] ) ){
             return 1;
         }
         else{
-            *linha -= VERTICAL[mov];
-            *coluna -= HORIZONTAL[mov];  
+            move( linha, coluna, mov, 0 );
         }    
     }
 
     return 0;
+}
+
+void move( int *linha, int *coluna, int mov, int tarefa )
+{
+    const int HORIZONTAL[8] = { 2, 1, -1, -2, -2, -1, 1, 2 };
+    const int VERTICAL[8] = { -1, -2, -2, -1, 1, 2, 2, 1 };
+
+    if( tarefa ){
+        *linha += VERTICAL[ mov ];
+        *coluna += HORIZONTAL[ mov ];
+    }
+    else{
+        *linha -= VERTICAL[ mov ];
+        *coluna -= HORIZONTAL[ mov ];     
+    }
 }
