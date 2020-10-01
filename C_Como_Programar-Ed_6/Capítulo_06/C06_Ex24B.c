@@ -38,7 +38,7 @@ Date:           29/09/2020
 #include <stdlib.h>
 #include <time.h>
 
-int validaMovimentos( int tab[8][8], int *linha, int *coluna, int mov );
+int validaMovimentos( int tab[8][8], int linha, int coluna, int mov );
 void move( int *linha, int *coluna, int mov, int tarefa );
 
 
@@ -55,10 +55,10 @@ int main( void )
     atualColuna = rand() % 8;
     tabuleiro[atualLinha][atualColuna] = ++contaCasa; 
 
-    while( validaMovimentos( tabuleiro, &atualLinha, &atualColuna, -1 ) ){
+    while( validaMovimentos( tabuleiro, atualLinha, atualColuna, -1 ) ){
         movimentoCavalo = rand() % 8;
 
-        if( validaMovimentos( tabuleiro, &atualLinha, &atualColuna, movimentoCavalo ) ){
+        if( validaMovimentos( tabuleiro, atualLinha, atualColuna, movimentoCavalo ) ){
             move( &atualLinha, &atualColuna, movimentoCavalo, 1 );
             tabuleiro[atualLinha][atualColuna] = ++contaCasa;
         }
@@ -81,30 +81,29 @@ int main( void )
 
 //valida se movimento é possível no tabuleiro
 // mov < 0 indica que todos os movimentos serão testados
-int validaMovimentos( int tab[8][8], int *linha, int *coluna, int mov )
+int validaMovimentos( int tab[8][8], int linha, int coluna, int mov )
 {
     if( mov < 0 ){
         for( mov = 0; mov < 8; mov++ ){
-            move( linha, coluna, mov, 1 );
+            move( &linha, &coluna, mov, 1 );
 
-            if( ( *linha < 8 && *linha >= 0 ) && ( *coluna < 8 && *coluna >= 0 ) && ( 0  == tab[ *linha ] [ *coluna ] ) ){
-                move( linha, coluna, mov, 0 );
+            if( ( linha < 8 && linha >= 0 ) && ( coluna < 8 && coluna >= 0 ) && ( 0  == tab[ linha ] [ coluna ] ) ){
+                move( &linha, &coluna, mov, 0 );
                 return 1;
             }
             else{
-                move( linha, coluna, mov, 0 );
+                move( &linha, &coluna, mov, 0 );
             }      
         }
     }
     else{
-        move( linha, coluna, mov, 1 );
+        move( &linha, &coluna, mov, 1 );
 
-        if( ( *linha < 8 && *linha >= 0 ) && ( *coluna < 8 && *coluna >= 0 ) && ( 0  == tab[ *linha ] [ *coluna ] ) ){
-            move( linha, coluna, mov, 0 );
+        if( ( linha < 8 && linha >= 0 ) && ( coluna < 8 && coluna >= 0 ) && ( 0  == tab[ linha ] [ coluna ] ) ){
             return 1;
         }
         else{
-            move( linha, coluna, mov, 0 );
+            move( &linha, &coluna, mov, 0 );
         }    
     }
 
