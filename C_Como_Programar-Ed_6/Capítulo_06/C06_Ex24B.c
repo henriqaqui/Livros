@@ -57,19 +57,13 @@ int main( void )
     atualColuna = testaColuna = rand() % 8;
     tabuleiro[atualLinha][atualColuna] = ++contaCasa; 
 
-    while( validaMovimentos( tabuleiro, atualLinha, atualColuna, 0 ) ){
+    while( validaMovimentos( tabuleiro, atualLinha, atualColuna, -1 ) ){
         movimentoCavalo = rand() % 8;
-        testaLinha += VERTICAL[ movimentoCavalo ];
-        testaColuna += HORIZONTAL[ movimentoCavalo ];
 
-        if( validaMovimentos( tabuleiro, testaLinha, testaColuna, -1 ) ){
-            atualLinha = testaLinha;
-            atualColuna = testaColuna;
+        if( validaMovimentos( tabuleiro, atualLinha, atualColuna, movimentoCavalo ) ){
+            atualLinha += VERTICAL[movimentoCavalo];
+            atualColuna += HORIZONTAL[movimentoCavalo];
             tabuleiro[atualLinha][atualColuna] = ++contaCasa;
-        }
-        else{
-            testaLinha -= VERTICAL[ movimentoCavalo ];
-            testaColuna -= HORIZONTAL[ movimentoCavalo ];
         }
     }
 
@@ -89,25 +83,34 @@ int main( void )
 
 
 //valida se movimento é possível no tabuleiro
-// mov < 0 indica que apenas um movimento será testado
+// mov < 0 indica que todos os movimentos serão testados
 int validaMovimentos( int tab[8][8], int linha, int coluna, int mov )
 {
     const int HORIZONTAL[8] = { 2, 1, -1, -2, -2, -1, 1, 2 };
     const int VERTICAL[8] = { -1, -2, -2, -1, 1, 2, 2, 1 };
 
     if( mov < 0 ){
-        if( ( linha < 8 && linha >= 0 ) && ( coluna < 8 && coluna >= 0 ) && ( 0  == tab[ linha ] [ coluna ] ) ){
-                return 1;
+        for( mov = 0; mov < 8; mov++ ){
+            linha += VERTICAL[mov];
+            coluna += HORIZONTAL[mov];
+
+            if( ( linha < 8 && linha >= 0 ) && ( coluna < 8 && coluna >= 0 ) && ( 0  == tab[ linha ] [ coluna ] ) ){
+                    return 1;
+            }
+            else{
+                linha -= VERTICAL[mov];
+                coluna -= HORIZONTAL[mov];
+            }
+            
         }
     }
     else{
-        for( mov = 0; mov < 8; mov++ ){
-            if( ( linha + VERTICAL[mov] < 8 && linha + VERTICAL[mov] >= 0 ) &&
-            ( coluna + HORIZONTAL[mov] < 8 && coluna + HORIZONTAL[mov] >= 0 ) && 
-            ( 0  == tab[ linha + VERTICAL[mov] ] [ coluna + HORIZONTAL[mov] ] ) ){
+        linha += VERTICAL[mov];
+        coluna += HORIZONTAL[mov];
+
+        if( ( linha < 8 && linha >= 0 ) && ( coluna < 8 && coluna >= 0 ) && ( 0  == tab[ linha ] [ coluna ] ) ){
                 return 1;
             }
-        }
     }
 
     return 0;
