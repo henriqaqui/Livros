@@ -59,6 +59,7 @@ int main( void )
         movimentoCavalo = rand() % 8;
 
         if( validaMovimentos( tabuleiro, &atualLinha, &atualColuna, movimentoCavalo ) ){
+            move( &atualLinha, &atualColuna, movimentoCavalo, 1 );
             tabuleiro[atualLinha][atualColuna] = ++contaCasa;
         }
     }
@@ -99,6 +100,7 @@ int validaMovimentos( int tab[8][8], int *linha, int *coluna, int mov )
         move( linha, coluna, mov, 1 );
 
         if( ( *linha < 8 && *linha >= 0 ) && ( *coluna < 8 && *coluna >= 0 ) && ( 0  == tab[ *linha ] [ *coluna ] ) ){
+            move( linha, coluna, mov, 0 );
             return 1;
         }
         else{
