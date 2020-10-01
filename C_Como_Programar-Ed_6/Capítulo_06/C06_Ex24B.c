@@ -86,23 +86,27 @@ int validaMovimentos( int tab[8][8], int *linha, int *coluna, int mov )
         for( mov = 0; mov < 8; mov++ ){
             move( linha, coluna, mov, 1 );
 
-            if( ( linha < 8 && linha >= 0 ) && ( coluna < 8 && coluna >= 0 ) && ( 0  == tab[ *linha ] [ *coluna ] ) ){
-                move( linha, coluna, mov, 0 );
-                return 1;
+            if( ( *linha < 8 && *linha >= 0 ) && ( *coluna < 8 && *coluna >= 0 ) && ( 0  == tab[ *linha ] [ *coluna ] ) ){
+            move( linha, coluna, mov, 0 );
+
+                    return 1;
             }
             else{
                 move( linha, coluna, mov, 0 );
+
             }      
         }
     }
     else{
         move( linha, coluna, mov, 1 );
 
-        if( ( linha < 8 && linha >= 0 ) && ( coluna < 8 && coluna >= 0 ) && ( 0  == tab[ *linha ] [ *coluna ] ) ){
+
+        if( ( *linha < 8 && *linha >= 0 ) && ( *coluna < 8 && *coluna >= 0 ) && ( 0  == tab[ *linha ] [ *coluna ] ) ){
             return 1;
         }
         else{
             move( linha, coluna, mov, 0 );
+
         }    
     }
 
