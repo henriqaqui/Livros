@@ -38,31 +38,25 @@ Date:           29/09/2020
 #include <stdlib.h>
 #include <time.h>
 
-#define CASAS 64
-
-int validaMovimentos( int tab[8][8], int linha, int coluna, int mov );
+int validaMovimentos( int tab[8][8], int *linha, int *coluna, int mov );
 
 int main( void )
 {
-    const int HORIZONTAL[8] = { 2, 1, -1, -2, -2, -1, 1, 2 };
-    const int VERTICAL[8] = { -1, -2, -2, -1, 1, 2, 2, 1 };
     int tabuleiro[8][8] = { 0 };
-    int atualLinha, atualColuna, testaLinha, testaColuna;
+    int atualLinha, atualColuna;
     int movimentoCavalo; //indica as opções de movimentos entre 0 e 7
     int contaCasa = 0; // contador de quadrados em que o cavalo passou
     int i, j;
 
     srand( time( NULL ) );
-    atualLinha = testaLinha = rand() % 8;
-    atualColuna = testaColuna = rand() % 8;
+    atualLinha = rand() % 8;
+    atualColuna = rand() % 8;
     tabuleiro[atualLinha][atualColuna] = ++contaCasa; 
 
-    while( validaMovimentos( tabuleiro, atualLinha, atualColuna, -1 ) ){
+    while( validaMovimentos( tabuleiro, &atualLinha, &atualColuna, -1 ) ){
         movimentoCavalo = rand() % 8;
 
-        if( validaMovimentos( tabuleiro, atualLinha, atualColuna, movimentoCavalo ) ){
-            atualLinha += VERTICAL[movimentoCavalo];
-            atualColuna += HORIZONTAL[movimentoCavalo];
+        if( validaMovimentos( tabuleiro, &atualLinha, &atualColuna, movimentoCavalo ) ){
             tabuleiro[atualLinha][atualColuna] = ++contaCasa;
         }
     }
@@ -84,33 +78,38 @@ int main( void )
 
 //valida se movimento é possível no tabuleiro
 // mov < 0 indica que todos os movimentos serão testados
-int validaMovimentos( int tab[8][8], int linha, int coluna, int mov )
+int validaMovimentos( int tab[8][8], int *linha, int *coluna, int mov )
 {
     const int HORIZONTAL[8] = { 2, 1, -1, -2, -2, -1, 1, 2 };
     const int VERTICAL[8] = { -1, -2, -2, -1, 1, 2, 2, 1 };
 
     if( mov < 0 ){
         for( mov = 0; mov < 8; mov++ ){
-            linha += VERTICAL[mov];
-            coluna += HORIZONTAL[mov];
+            *linha += VERTICAL[mov];
+            *coluna += HORIZONTAL[mov];
 
-            if( ( linha < 8 && linha >= 0 ) && ( coluna < 8 && coluna >= 0 ) && ( 0  == tab[ linha ] [ coluna ] ) ){
+            if( ( *linha < 8 && *linha >= 0 ) && ( *coluna < 8 && *coluna >= 0 ) && ( 0  == tab[ *linha ] [ *coluna ] ) ){
+                    *linha -= VERTICAL[mov];
+                    *coluna -= HORIZONTAL[mov];
                     return 1;
             }
             else{
-                linha -= VERTICAL[mov];
-                coluna -= HORIZONTAL[mov];
-            }
-            
+                *linha -= VERTICAL[mov];
+                *coluna -= HORIZONTAL[mov];
+            }      
         }
     }
     else{
-        linha += VERTICAL[mov];
-        coluna += HORIZONTAL[mov];
+        *linha += VERTICAL[mov];
+        *coluna += HORIZONTAL[mov];
 
-        if( ( linha < 8 && linha >= 0 ) && ( coluna < 8 && coluna >= 0 ) && ( 0  == tab[ linha ] [ coluna ] ) ){
-                return 1;
-            }
+        if( ( *linha < 8 && *linha >= 0 ) && ( *coluna < 8 && *coluna >= 0 ) && ( 0  == tab[ *linha ] [ *coluna ] ) ){
+            return 1;
+        }
+        else{
+            *linha -= VERTICAL[mov];
+            *coluna -= HORIZONTAL[mov];  
+        }    
     }
 
     return 0;
