@@ -40,8 +40,7 @@ Date:           29/09/2020
 
 #define CASAS 64
 
-int testaMovimento( int tab[8][8], int hor[], int ver[], int linha, int coluna, int mov );
-int testaMovimentos( int tab[8][8], int hor[], int ver[], int linha, int coluna );
+int validaMovimentos( int tab[8][8], int linha, int coluna, int mov );
 
 int main( void )
 {
@@ -54,25 +53,23 @@ int main( void )
     int i, j;
 
     srand( time( NULL ) );
-    atualLinha = rand() % 8;
-    atualColuna = rand() % 8;
-    tabuleiro[atualLinha][atualColuna] = ++contaCasa;
+    atualLinha = testaLinha = rand() % 8;
+    atualColuna = testaColuna = rand() % 8;
+    tabuleiro[atualLinha][atualColuna] = ++contaCasa; 
 
-    movimentoCavalo = rand() % 8;
-    
-    while( contaCasa < CASAS ){
-        if( testaMovimentos( tabuleiro, HORIZONTAL, VERTICAL, atualLinha, atualColuna ) ){
-            do{
-                movimentoCavalo = rand() % 8;
-            }while( !(testaMovimento( tabuleiro, HORIZONTAL, VERTICAL, atualLinha, atualColuna, movimentoCavalo ) ) );
+    while( validaMovimentos( tabuleiro, atualLinha, atualColuna, 0 ) ){
+        movimentoCavalo = rand() % 8;
+        testaLinha += VERTICAL[ movimentoCavalo ];
+        testaColuna += HORIZONTAL[ movimentoCavalo ];
 
-            atualLinha += VERTICAL[ movimentoCavalo ];
-            atualColuna += HORIZONTAL[ movimentoCavalo ];
-
+        if( validaMovimentos( tabuleiro, testaLinha, testaColuna, -1 ) ){
+            atualLinha = testaLinha;
+            atualColuna = testaColuna;
             tabuleiro[atualLinha][atualColuna] = ++contaCasa;
         }
         else{
-            break;
+            testaLinha -= VERTICAL[ movimentoCavalo ];
+            testaColuna -= HORIZONTAL[ movimentoCavalo ];
         }
     }
 
@@ -91,27 +88,25 @@ int main( void )
 }
 
 
-int testaMovimento( int tab[8][8], int hor[], int ver[], int linha, int coluna, int mov )
+//valida se movimento é possível no tabuleiro
+// mov < 0 indica que apenas um movimento será testado
+int validaMovimentos( int tab[8][8], int linha, int coluna, int mov )
 {
-    if( (linha + ver[ mov ] < 8 && linha + ver[ mov ] >= 0) &&
-        (coluna + hor[ mov ] < 8 && coluna + hor[ mov ] >= 0) &&
-        tab[ linha + ver[ mov ] ] [ coluna + hor[ mov ] ] == 0 ){
-            return 1;
-    }
+    const int HORIZONTAL[8] = { 2, 1, -1, -2, -2, -1, 1, 2 };
+    const int VERTICAL[8] = { -1, -2, -2, -1, 1, 2, 2, 1 };
 
-    return 0;
-}
-
-
-int testaMovimentos( int tab[8][8], int hor[], int ver[], int linha, int coluna )
-{
-    int i;
-
-    for( i = 0; i < 8; i++ ){
-        if( (linha + ver[ i ] < 8 && linha + ver[ i ] >= 0) &&
-            (coluna + hor[ i ] < 8 && coluna + hor[ i ] >= 0) &&
-            tab[ linha + ver[ i ] ] [ coluna + hor[ i ] ] == 0 ){
+    if( mov < 0 ){
+        if( ( linha < 8 && linha >= 0 ) && ( coluna < 8 && coluna >= 0 ) && ( 0  == tab[ linha ] [ coluna ] ) ){
                 return 1;
+        }
+    }
+    else{
+        for( mov = 0; mov < 8; mov++ ){
+            if( ( linha + VERTICAL[mov] < 8 && linha + VERTICAL[mov] >= 0 ) &&
+            ( coluna + HORIZONTAL[mov] < 8 && coluna + HORIZONTAL[mov] >= 0 ) && 
+            ( 0  == tab[ linha + VERTICAL[mov] ] [ coluna + HORIZONTAL[mov] ] ) ){
+                return 1;
+            }
         }
     }
 
