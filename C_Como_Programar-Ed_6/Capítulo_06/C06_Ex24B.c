@@ -46,7 +46,7 @@ int main( void )
 {
     int tabuleiro[8][8] = { 0 };
     int atualLinha, atualColuna;
-    int movimentoCavalo; //indica as opções de movimentos entre 0 e 7
+    int movimento; //indica as opções de movimentos entre 0 e 7
     int contaCasa = 0; // contador de quadrados em que o cavalo passou
     int i, j;
 
@@ -56,10 +56,10 @@ int main( void )
     tabuleiro[atualLinha][atualColuna] = ++contaCasa; 
 
     while( validaMovimentos( tabuleiro, atualLinha, atualColuna, -1 ) ){
-        movimentoCavalo = rand() % 8;
+        movimento = rand() % 8;
 
-        if( validaMovimentos( tabuleiro, atualLinha, atualColuna, movimentoCavalo ) ){
-            move( &atualLinha, &atualColuna, movimentoCavalo, 1 );
+        if( validaMovimentos( tabuleiro, atualLinha, atualColuna, movimento ) ){
+            move( &atualLinha, &atualColuna, movimento, 1 );
             tabuleiro[atualLinha][atualColuna] = ++contaCasa;
         }
     }
