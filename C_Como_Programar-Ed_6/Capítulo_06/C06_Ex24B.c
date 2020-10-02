@@ -40,7 +40,7 @@ Date:           29/09/2020
 
 int validaMovimentos( int tab[8][8], int linha, int coluna, int mov );
 void move( int *linha, int *coluna, int mov, int tarefa );
-
+void imprimeTabuleiro( int tab[][8] );
 
 int main( void )
 {
@@ -64,15 +64,8 @@ int main( void )
         }
     }
 
-    printf( "   0# 1# 2# 3# 4# 5# 6# 7#\n");
-    for( i = 0; i < 8; i++ ){
-        printf( "%d# ", i);
-        for( j = 0; j < 8; j++ ){
-            printf( "%2d ", tabuleiro[ i ][ j ] );
-        }
-        printf( "\n" );
-    }
-
+    imprimeTabuleiro( tabuleiro );
+    
     printf( "Total de casas percorridas: %d\n", contaCasa );
 
    return 0;
@@ -120,4 +113,20 @@ void move( int *linha, int *coluna, int mov, int tarefa )
         *linha -= VERTICAL[ mov ];
         *coluna -= HORIZONTAL[ mov ];     
     }
+}
+
+void imprimeTabuleiro( int tab[][8] )
+{
+    int i, j;
+
+    printf( "   0# 1# 2# 3# 4# 5# 6# 7#\n");
+    for( i = 0; i < 8; i++ ){
+        printf( "%d# ", i);
+        for( j = 0; j < 8; j++ ){
+            printf( "%2d ", tab[ i ][ j ] );
+        }
+        printf( "\n" );
+    }
+    printf( "\n" );
+
 }
