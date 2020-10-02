@@ -65,7 +65,7 @@ int main( void )
     }
 
     imprimeTabuleiro( tabuleiro );
-    
+
     printf( "Total de casas percorridas: %d\n", contaCasa );
 
    return 0;
@@ -128,5 +128,4 @@ void imprimeTabuleiro( int tab[][8] )
         printf( "\n" );
     }
     printf( "\n" );
-
 }
