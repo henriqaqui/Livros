@@ -32,7 +32,6 @@ int main( void )
     int atualLinha, atualColuna;
     int movimento; //indica as opções de movimentos entre 0 e 7
     int contaCasa = 0; // contador de quadrados em que o cavalo passou
-    int i, j;
 
     srand( time( NULL ) );
     atualLinha = rand() % 8;
