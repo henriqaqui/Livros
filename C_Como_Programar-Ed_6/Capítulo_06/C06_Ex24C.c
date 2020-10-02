@@ -28,20 +28,20 @@ int melhorMovimento( int tab[8][8], int linha, int coluna);
 int main( void )
 {
     int tabuleiro[8][8] = { 0 };
-    int atualLinha, atualColuna, inicio[2] = { 0, 7 };
-    int movimentoCavalo; //indica as opções de movimentos entre 0 e 7
+    int atualLinha, atualColuna;
+    int movimento; //indica as opções de movimentos entre 0 e 7
     int contaCasa = 0; // contador de quadrados em que o cavalo passou
     int i, j;
 
     srand( time( NULL ) );
-    atualLinha = inicio[ rand() % 2 ];
-    atualColuna = inicio[ rand() % 2 ];
+    atualLinha = rand() % 8;
+    atualColuna = rand() % 8;
     tabuleiro[atualLinha][atualColuna] = ++contaCasa; 
 
     while( validaMovimentos( tabuleiro, atualLinha, atualColuna, -1 ) ){
-        movimentoCavalo = melhorMovimento( tabuleiro, atualLinha, atualColuna );
+        movimento = melhorMovimento( tabuleiro, atualLinha, atualColuna );
         
-        move( &atualLinha, &atualColuna, movimentoCavalo, 1 );
+        move( &atualLinha, &atualColuna, movimento, 1 );
         tabuleiro[atualLinha][atualColuna] = ++contaCasa;
     }
 
@@ -110,20 +110,21 @@ int melhorMovimento( int tab[8][8], int linha, int coluna )
     int mov;
     int menorAcess = 9;
     int possivelMovimento[8] = { 0 };
-    int acessibilidade[ 8 ][ 8 ] = { 2, 3, 4, 4, 4, 4, 3, 2,
-                                     3, 4, 6, 6, 6, 6, 4, 3,
-                                     4, 6, 8, 8, 8, 8, 6, 4,
-                                     4, 6, 8, 8, 8, 8, 6, 4,
-                                     4, 6, 8, 8, 8, 8, 6, 4,
-                                     4, 6, 8, 8, 8, 8, 6, 4,
-                                     3, 4, 6, 6, 6, 6, 4, 3,
-                                     2, 3, 4, 4, 4, 4, 3, 2 };
+    int heuristica[ 8 ][ 8 ] = { { 2, 3, 4, 4, 4, 4, 3, 2 },
+                                 { 3, 4, 6, 6, 6, 6, 4, 3 },
+                                 { 4, 6, 8, 8, 8, 8, 6, 4 },
+                                 { 4, 6, 8, 8, 8, 8, 6, 4 },
+                                 { 4, 6, 8, 8, 8, 8, 6, 4 },
+                                 { 4, 6, 8, 8, 8, 8, 6, 4 },
+                                 { 3, 4, 6, 6, 6, 6, 4, 3 },
+                                 { 2, 3, 4, 4, 4, 4, 3, 2 } };
+
     for( mov = 0; mov < 8; mov++ ){
         move( &linha, &coluna, mov, 1 );
 
         if( ( linha < 8 && linha >= 0 ) && ( coluna < 8 && coluna >= 0 ) && ( 0  == tab[ linha ] [ coluna ] ) ){
-            if( acessibilidade[linha][coluna] < menorAcess ){
-                menorAcess = acessibilidade[linha][coluna];
+            if( heuristica[linha][coluna] < menorAcess ){
+                menorAcess = heuristica[linha][coluna];
             }
         }
 
@@ -134,7 +135,7 @@ int melhorMovimento( int tab[8][8], int linha, int coluna )
         move( &linha, &coluna, mov, 1 ); 
         
         if( ( linha < 8 && linha >= 0 ) && ( coluna < 8 && coluna >= 0 ) && ( 0  == tab[ linha ] [ coluna ] ) ){
-            if( acessibilidade[linha][coluna] == menorAcess ){
+            if( heuristica[linha][coluna] == menorAcess ){
                 ++possivelMovimento[mov];
             }
         } 
