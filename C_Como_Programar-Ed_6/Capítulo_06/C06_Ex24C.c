@@ -24,7 +24,7 @@ Date:           01/10/2020
 int validaMovimentos( int tab[8][8], int linha, int coluna, int mov );
 void move( int *linha, int *coluna, int mov, int tarefa );
 void imprimeTabuleiro( int tab[][8] );
-int melhorMovimento( int tab[8][8], int linha, int coluna);
+int menorHeuristica( int tab[8][8], int linha, int coluna);
 
 int main( void )
 {
@@ -39,7 +39,7 @@ int main( void )
     tabuleiro[atualLinha][atualColuna] = ++contaCasa; 
 
     while( validaMovimentos( tabuleiro, atualLinha, atualColuna, -1 ) ){
-        movimento = melhorMovimento( tabuleiro, atualLinha, atualColuna );
+        movimento = menorHeuristica( tabuleiro, atualLinha, atualColuna );
         
         move( &atualLinha, &atualColuna, movimento, 1 );
         tabuleiro[atualLinha][atualColuna] = ++contaCasa;
@@ -98,7 +98,7 @@ void move( int *linha, int *coluna, int mov, int tarefa )
     return;
 }
 
-int melhorMovimento( int tab[8][8], int linha, int coluna )
+int menorHeuristica( int tab[8][8], int linha, int coluna )
 {
     int mov;
     int menorAcess = 9;
