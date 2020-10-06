@@ -18,10 +18,7 @@ int main( void )
     scanf( "%d", &numero );
 
     while( contador <= numero ){
-        printf( "%d\t", contador );
-        if( contador % 10 == 0 ){
-            printf( "\n" );
-        }
+        printf( "%d\n", contador );
         contador++;
     }
 
