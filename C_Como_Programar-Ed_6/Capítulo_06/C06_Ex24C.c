@@ -36,6 +36,8 @@ int main( void )
     int contaPasseios[65] = { 0 };
     int i, j;
 
+    srand( time( NULL ) );
+
     for( i = 0; i < 8; i++ ){
         for(j = 0; j < 8; j++ ) {
             atualLinha = i;
