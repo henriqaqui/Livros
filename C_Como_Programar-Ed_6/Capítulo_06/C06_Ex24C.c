@@ -38,10 +38,9 @@ int main( void )
 
     srand( time( NULL ) );
 
-    for( i = 0; i < 8; i++ ){
-        for(j = 0; j < 8; j++ ) {
-            atualLinha = i;
-            atualColuna = j;
+    for( i = 0; i < 1000; i++ ){
+            atualLinha = rand() % 8;
+            atualColuna = rand() % 8;
             contaCasa = 0;
             
             tabuleiro[atualLinha][atualColuna] = ++contaCasa; 
@@ -58,12 +57,12 @@ int main( void )
             // printf( "Total de casas percorridas: %d\n", contaCasa );
             
             limpaTabuleiro( tabuleiro );
-        }
+        
     }
     
     printf("%22s" "%15s\n", "QUANTIDADE DE PASSEIOS", "FREQUENCIA" );
     
-    for( i = 1; i < 65; i++ ){ 
+    for( i = 40; i < 65; i++ ){ 
         printf("%22d" "%15d\n", i, contaPasseios[i] );
     }
     
@@ -149,6 +148,7 @@ int melhorMovimento( int tab[8][8], int linha, int coluna )
             if( heuristica[linha][coluna] == menorHeuristica ){
                 ++possivelMovimento[mov];
             }
+            heuristica[linha][coluna]--;
         } 
 
         move( &linha, &coluna, mov, 0 );
