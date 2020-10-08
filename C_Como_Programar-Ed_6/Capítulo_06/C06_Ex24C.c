@@ -24,7 +24,8 @@ Date:           01/10/2020
 int validaMovimentos( int tab[8][8], int linha, int coluna, int mov );
 void move( int *linha, int *coluna, int mov, int tarefa );
 void imprimeTabuleiro( int tab[][8] );
-int menorHeuristica( int tab[8][8], int linha, int coluna);
+int melhorMovimento( int tab[8][8], int linha, int coluna);
+void limpaTabuleiro( int tab[8][8] );
 
 int main( void )
 {
@@ -32,23 +33,38 @@ int main( void )
     int atualLinha, atualColuna;
     int movimento; //indica as opções de movimentos entre 0 e 7
     int contaCasa = 0; // contador de quadrados em que o cavalo passou
+    int contaPasseios[65] = { 0 };
+    int i, j;
 
-    srand( time( NULL ) );
-    atualLinha = rand() % 8;
-    atualColuna = rand() % 8;
-    tabuleiro[atualLinha][atualColuna] = ++contaCasa; 
+    for( i = 0; i < 8; i++ ){
+        for(j = 0; j < 8; j++ ) {
+            atualLinha = i;
+            atualColuna = j;
+            contaCasa = 0;
+            
+            tabuleiro[atualLinha][atualColuna] = ++contaCasa; 
 
-    while( validaMovimentos( tabuleiro, atualLinha, atualColuna, -1 ) ){
-        movimento = menorHeuristica( tabuleiro, atualLinha, atualColuna );
-        
-        move( &atualLinha, &atualColuna, movimento, 1 );
-        tabuleiro[atualLinha][atualColuna] = ++contaCasa;
+            while( validaMovimentos( tabuleiro, atualLinha, atualColuna, -1 ) ){
+                movimento = melhorMovimento( tabuleiro, atualLinha, atualColuna );
+                
+                move( &atualLinha, &atualColuna, movimento, 1 );
+                tabuleiro[atualLinha][atualColuna] = ++contaCasa;
+            }
+            ++contaPasseios[ contaCasa ];
+
+            // imprimeTabuleiro( tabuleiro );
+            // printf( "Total de casas percorridas: %d\n", contaCasa );
+            
+            limpaTabuleiro( tabuleiro );
+        }
     }
-
-    imprimeTabuleiro( tabuleiro );
-
-    printf( "Total de casas percorridas: %d\n", contaCasa );
-
+    
+    printf("%22s" "%15s\n", "QUANTIDADE DE PASSEIOS", "FREQUENCIA" );
+    
+    for( i = 1; i < 65; i++ ){ 
+        printf("%22d" "%15d\n", i, contaPasseios[i] );
+    }
+    
    return 0;
 }
 
@@ -98,10 +114,10 @@ void move( int *linha, int *coluna, int mov, int tarefa )
     return;
 }
 
-int menorHeuristica( int tab[8][8], int linha, int coluna )
+int melhorMovimento( int tab[8][8], int linha, int coluna )
 {
     int mov;
-    int menorAcess = 9;
+    int menorHeuristica = 9;
     int possivelMovimento[8] = { 0 };
     int heuristica[ 8 ][ 8 ] = { { 2, 3, 4, 4, 4, 4, 3, 2 },
                                  { 3, 4, 6, 6, 6, 6, 4, 3 },
@@ -116,8 +132,8 @@ int menorHeuristica( int tab[8][8], int linha, int coluna )
         move( &linha, &coluna, mov, 1 );
 
         if( ( linha < 8 && linha >= 0 ) && ( coluna < 8 && coluna >= 0 ) && ( 0  == tab[ linha ] [ coluna ] ) ){
-            if( heuristica[linha][coluna] < menorAcess ){
-                menorAcess = heuristica[linha][coluna];
+            if( heuristica[linha][coluna] < menorHeuristica ){
+                menorHeuristica = heuristica[linha][coluna];
             }
         }
 
@@ -128,7 +144,7 @@ int menorHeuristica( int tab[8][8], int linha, int coluna )
         move( &linha, &coluna, mov, 1 ); 
         
         if( ( linha < 8 && linha >= 0 ) && ( coluna < 8 && coluna >= 0 ) && ( 0  == tab[ linha ] [ coluna ] ) ){
-            if( heuristica[linha][coluna] == menorAcess ){
+            if( heuristica[linha][coluna] == menorHeuristica ){
                 ++possivelMovimento[mov];
             }
         } 
@@ -157,4 +173,15 @@ void imprimeTabuleiro( int tab[][8] )
         printf( "\n" );
     }
     printf( "\n" );
+}
+
+void limpaTabuleiro( int tab[8][8] )
+{
+    int i, j;
+
+    for( i = 0; i < 8; i++ ){
+        for(j = 0; j < 8; j++ ) {
+            tab[i][j] = 0;
+        }
+    }
 }
