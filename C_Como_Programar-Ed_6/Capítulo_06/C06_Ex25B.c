@@ -30,7 +30,7 @@ int main( void )
     int contaCasa = 0; // contador de quadrados em que o cavalo passou
 
     int frequenciaPasseio[65] = { 0 };
-    int i, j;
+    int i;
 
     srand( time( NULL ) );
     
