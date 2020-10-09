@@ -38,9 +38,10 @@ int main( void )
 
     srand( time( NULL ) );
 
-    for( i = 0; i < 1000; i++ ){
-            atualLinha = rand() % 8;
-            atualColuna = rand() % 8;
+    for( i = 0; i < 8; i++ ){
+        for( j = 0; j < 8; j++ ){
+            atualLinha = i;
+            atualColuna = j;
             contaCasa = 0;
             
             tabuleiro[atualLinha][atualColuna] = ++contaCasa; 
@@ -53,16 +54,17 @@ int main( void )
             }
             ++contaPasseios[ contaCasa ];
 
-            // imprimeTabuleiro( tabuleiro );
-            // printf( "Total de casas percorridas: %d\n", contaCasa );
+            imprimeTabuleiro( tabuleiro );
+            printf( "Total de casas percorridas: %d\n\n", contaCasa );
             
             limpaTabuleiro( tabuleiro );
+        }
         
     }
     
     printf("%22s" "%15s\n", "QUANTIDADE DE PASSEIOS", "FREQUENCIA" );
     
-    for( i = 40; i < 65; i++ ){ 
+    for( i = 1; i < 65; i++ ){ 
         printf("%22d" "%15d\n", i, contaPasseios[i] );
     }
     
@@ -117,17 +119,17 @@ void move( int *linha, int *coluna, int mov, int tarefa )
 
 int melhorMovimento( int tab[8][8], int linha, int coluna )
 {
+    static int heuristica[ 8 ][ 8 ] = { { 2, 3, 4, 4, 4, 4, 3, 2 },
+                                        { 3, 4, 6, 6, 6, 6, 4, 3 },
+                                        { 4, 6, 8, 8, 8, 8, 6, 4 },
+                                        { 4, 6, 8, 8, 8, 8, 6, 4 },
+                                        { 4, 6, 8, 8, 8, 8, 6, 4 },
+                                        { 4, 6, 8, 8, 8, 8, 6, 4 },
+                                        { 3, 4, 6, 6, 6, 6, 4, 3 },
+                                        { 2, 3, 4, 4, 4, 4, 3, 2 } };
     int mov;
     int menorHeuristica = 9;
     int possivelMovimento[8] = { 0 };
-    int heuristica[ 8 ][ 8 ] = { { 2, 3, 4, 4, 4, 4, 3, 2 },
-                                 { 3, 4, 6, 6, 6, 6, 4, 3 },
-                                 { 4, 6, 8, 8, 8, 8, 6, 4 },
-                                 { 4, 6, 8, 8, 8, 8, 6, 4 },
-                                 { 4, 6, 8, 8, 8, 8, 6, 4 },
-                                 { 4, 6, 8, 8, 8, 8, 6, 4 },
-                                 { 3, 4, 6, 6, 6, 6, 4, 3 },
-                                 { 2, 3, 4, 4, 4, 4, 3, 2 } };
 
     for( mov = 0; mov < 8; mov++ ){
         move( &linha, &coluna, mov, 1 );
@@ -148,7 +150,7 @@ int melhorMovimento( int tab[8][8], int linha, int coluna )
             if( heuristica[linha][coluna] == menorHeuristica ){
                 ++possivelMovimento[mov];
             }
-            heuristica[linha][coluna]--;
+            --heuristica[linha][coluna];
         } 
 
         move( &linha, &coluna, mov, 0 );
