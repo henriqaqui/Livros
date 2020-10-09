@@ -6,7 +6,7 @@ Description:    C: COMO PROGRAMAR - 6ª EDIÇÃO - PORTUGUÊS
                 6.24D Escreva uma versão do programa Passeio do Cavalo que, ao encontrar um empate entre dois ou mais
                 quadrados, decida qual quadrado escolher ao considerar o que poderia acontecer adiante, verificando
                 os quadrados alcançáveis pelos quadrados ‘empatados’. Seu programa deverá se mover para o quadrado pelo
-                qual o próximo movimento alcançará um quadrado com o menor número de acessibilidade
+                qual o próximo movimento alcançará um quadrado com o menor número de acessibilidade.
 Date:           01/10/2020
 =======================================================================================================================
 */
@@ -19,17 +19,25 @@ int validaMovimentos( int tab[8][8], int linha, int coluna, int mov );
 void move( int *linha, int *coluna, int mov, int tarefa );
 void imprimeTabuleiro( int tab[][8] );
 int melhorMovimento( int tab[8][8], int linha, int coluna);
+void limpaTabuleiro( int tab[8][8] );
+
 
 int main( void )
 {
     int tabuleiro[8][8] = { 0 };
     int atualLinha, atualColuna;
     int movimento; //indica as opções de movimentos entre 0 e 7
-    int contaCasa = 0; // contador de quadrados em que o cavalo passou
-
+    int contaCasa ; // contador de quadrados em que o cavalo passou
+    int i;
+    int contaPasseios[ 65 ] = { 0 };
+    
     srand( time( NULL ) );
+    
+    contaCasa = 0;
+
     atualLinha = rand() % 8;
     atualColuna = rand() % 8;
+
     tabuleiro[atualLinha][atualColuna] = ++contaCasa; 
 
     while( validaMovimentos( tabuleiro, atualLinha, atualColuna, -1 ) ){
@@ -39,8 +47,9 @@ int main( void )
         tabuleiro[atualLinha][atualColuna] = ++contaCasa;
     }
 
+    ++contaPasseios[ contaCasa ];
+        
     imprimeTabuleiro( tabuleiro );
-
     printf( "Total de casas percorridas: %d\n", contaCasa );
 
    return 0;
@@ -94,17 +103,17 @@ void move( int *linha, int *coluna, int mov, int tarefa )
 
 int melhorMovimento( int tab[8][8], int linha, int coluna )
 {
+    static int heuristica[ 8 ][ 8 ] = { { 2, 3, 4, 4, 4, 4, 3, 2 },
+                                        { 3, 4, 6, 6, 6, 6, 4, 3 },
+                                        { 4, 6, 8, 8, 8, 8, 6, 4 },
+                                        { 4, 6, 8, 8, 8, 8, 6, 4 },
+                                        { 4, 6, 8, 8, 8, 8, 6, 4 },
+                                        { 4, 6, 8, 8, 8, 8, 6, 4 },
+                                        { 3, 4, 6, 6, 6, 6, 4, 3 },
+                                        { 2, 3, 4, 4, 4, 4, 3, 2 } };
     int mov;
     int menorHeuristica = 9;
     int contaPossivelMovimento = 0;
-    int heuristica[ 8 ][ 8 ] = { { 2, 3, 4, 4, 4, 4, 3, 2 },
-                                 { 3, 4, 6, 6, 6, 6, 4, 3 },
-                                 { 4, 6, 8, 8, 8, 8, 6, 4 },
-                                 { 4, 6, 8, 8, 8, 8, 6, 4 },
-                                 { 4, 6, 8, 8, 8, 8, 6, 4 },
-                                 { 4, 6, 8, 8, 8, 8, 6, 4 },
-                                 { 3, 4, 6, 6, 6, 6, 4, 3 },
-                                 { 2, 3, 4, 4, 4, 4, 3, 2 } };
 
     int testeLinha, testeColuna;
     int testeMov;
@@ -152,6 +161,7 @@ int melhorMovimento( int tab[8][8], int linha, int coluna )
 
                 tab[linha][coluna] = 0;
             }
+            --heuristica[linha][coluna];
         }
         move( &linha, &coluna, mov, 0 ); 
     }
@@ -179,4 +189,16 @@ void imprimeTabuleiro( int tab[][8] )
         printf( "\n" );
     }
     printf( "\n" );
+}
+
+
+void limpaTabuleiro( int tab[8][8] )
+{
+    int i, j;
+
+    for( i = 0; i < 8; i++ ){
+        for(j = 0; j < 8; j++ ) {
+            tab[i][j] = 0;
+        }
+    }
 }
