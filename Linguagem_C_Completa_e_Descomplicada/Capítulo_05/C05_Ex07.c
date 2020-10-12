@@ -17,16 +17,14 @@ int main( void )
 {
     int valor, somatorio = 0;
     int contador;
-    float media;
 
     for( contador = 0; contador < N; contador++ ){
+        printf( "Digite 10 numeros inteiros (faltam %2d): ", N - contador );
         scanf( "%d", &valor );
         somatorio += valor;
     }
 
-    media = somatorio / (float)N;
-
-    printf( "%.2f\n", media );
+    printf( "Somatorio = %d\n", somatorio );
     
     return 0;
 }
