@@ -10,6 +10,8 @@ Date:           12/10/2020
 */
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <windows.h>
 
 int main( void )
 {
@@ -17,7 +19,7 @@ int main( void )
 
     for( contagem = 10; 0 <= contagem; contagem-- ){
         printf( "%2d", contagem );
-        _sleep( 1000 );
+        Sleep( 1000 );
         system( "cls" );
     }
 
