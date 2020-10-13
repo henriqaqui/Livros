@@ -15,12 +15,12 @@ Date:           13/10/2020
 
 int main( void )
 {
-    char nome[TAMANHO];
+    char palavra[TAMANHO];
     int i = 0;
 
-    scanf( "%s", nome );
+    scanf( "%s", palavra );
 
-    while( nome[i] != '\0' ){
+    while( palavra[i] != '\0' ){
         i++;
     }
 
