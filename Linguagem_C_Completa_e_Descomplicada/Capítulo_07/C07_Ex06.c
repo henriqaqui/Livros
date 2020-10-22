@@ -30,7 +30,7 @@ int main( void )
 
     vogais = contaVogais( palavra );
 
-    printf( "% s tem %d vogais.\n", palavra, vogais );
+    printf( "%s tem %d vogais.\n", palavra, vogais );
 
     trocaVogais( palavra, letra );
 
