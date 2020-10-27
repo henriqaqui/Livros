@@ -1,5 +1,5 @@
 # Livros
- Exercícios dos livros de programação:
+ Exercícios dos livros:
   
   1 C How to program 6th (C como programar)
       Paul Deitel
