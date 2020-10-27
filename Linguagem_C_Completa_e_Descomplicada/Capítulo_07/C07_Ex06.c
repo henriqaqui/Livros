@@ -11,6 +11,9 @@ Date:           18/10/2020
 */
 
 #include <stdio.h>
+#include <string.h>
+
+void trataString( char string[] );
 
 #define TAMANHO 50
 
@@ -25,21 +28,20 @@ int main( void )
     printf( "Digite uma palavra: ");
     fgets( palavra, TAMANHO, stdin );
 
+    trataString( palavra );
+
     printf( "Digite uma letra: ");
     letra = getchar();
 
     vogais = contaVogais( palavra );
 
-    printf( "%s tem %d vogais.\n", palavra, vogais );
-
     trocaVogais( palavra, letra );
 
-    printf( "Ao substituir as vogais a nova palavra e: %s\n", palavra );
+    printf( "%s tem %d vogais.\n", palavra, vogais );
+    printf( "Ao substituir as vogais a nova palavra fica: %s\n", palavra );
 
     return 0;
-
 }
-
 
 int contaVogais( char palavra[] )
 {
@@ -60,7 +62,6 @@ int contaVogais( char palavra[] )
     return total;
 }
 
-
 void trocaVogais( char palavra[], char letra )
 {
     const char vogais[10] = { "AaEeIiOoUu" };
@@ -74,5 +75,16 @@ void trocaVogais( char palavra[], char letra )
             }
         }
         i++;
+    }
+}
+
+void trataString( char string[] )
+{
+    int size;
+
+    size = strlen( string ) - 1;
+
+    if( string[size] == '\n' ){
+        string[size] = '\0';        
     }
 }
