@@ -13,12 +13,11 @@ Date:           18/10/2020
 #include <stdio.h>
 #include <string.h>
 
-void trataString( char string[] );
-
 #define TAMANHO 50
 
 int contaVogais( char palavra[] );
 void trocaVogais( char palavra[], char letra );
+void trataString( char string[] );
 
 int main( void )
 {
